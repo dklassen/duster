@@ -35,6 +35,12 @@ class TestMessageBaseClass:
         ):
             MessageInteface(commandID=b"\xff", deviceID=b"\xff", data=bytearray(4))
 
+    def test_init_raises_when_device_id_is_not_to_length(self):
+        with pytest.raises(
+            AssertionError, match="deviceID has unexpected length. Got 1 expected 2"
+        ):
+            MessageInteface(commandID=b"\xff", deviceID=b"\xff", data=bytearray(2))
+
 
 class TestResponseMessage:
     def test_to_bytes(self):
@@ -87,7 +93,7 @@ class TestCommandHandler:
     def test_write_calls_serial_with_expected_bytes(self):
         mock_serial = mock.Mock()
         input_command = sensor.CommandMessage(
-            commandID=b"\xc0\x08", deviceID=b"", data=bytearray(13)
+            commandID=b"\xc0\x08", deviceID=b"\xff\xff", data=bytearray(13)
         )
 
         subject = sensor.CommandHandler().write(

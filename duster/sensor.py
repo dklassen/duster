@@ -15,6 +15,10 @@ class Message(abc.ABC):
             len(data) == self.data_length
         ), f"Data has unexpected length. Got {len(data)} expected {self.data_length}"
 
+        assert (
+            len(deviceID) == 2
+        ), f"deviceID has unexpected length. Got {len(deviceID)} expected {2}"
+
         self._data = data
         self._commandID = commandID
         self._deviceID = deviceID
