@@ -169,7 +169,7 @@ class ResponseHandler:
 class CommandHandler:
     def write(self, *, serial_device, command):
         raw_command = command.to_bytes()
-        return serial_device.write(raw_command)
+        serial_device.write(raw_command)
 
 
 class SDS011:
