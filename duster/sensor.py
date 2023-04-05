@@ -115,8 +115,8 @@ class WorkingPeriodCommandBuilder:
         self._data[0:1] = b"\x08"
 
     def setWorkingPeriod(self, period_in_minutes):
-        self._data[1] = 1
-        self._data[2] = period_in_minutes
+        self._data[1:2] = b"\x01"
+        self._data[2:3] = period_in_minutes.to_bytes(1, "big")
         return self
 
     def build(self):
