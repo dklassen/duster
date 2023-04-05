@@ -75,7 +75,7 @@ class TestMeasurementHandler:
             data=bytearray.fromhex("D4 04 3A 0A"),
         )
 
-        assert sensor.MeasurementHandler.decode(raw_measurement) == expected
+        assert sensor.MeasurementDecoder.decode(raw_measurement) == expected
 
 
 class TestResponseHandler:

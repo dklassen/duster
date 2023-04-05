@@ -130,7 +130,7 @@ class WorkingPeriodCommandBuilder:
         )
 
 
-class MeasurementHandler:
+class MeasurementDecoder:
     @classmethod
     def decode(cls, raw_measurement):
         (pm_2_5, pm_10) = (x / 10 for x in struct.unpack("<HH", raw_measurement.data))
