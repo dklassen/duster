@@ -1,9 +1,6 @@
 import serial
-import time
 import struct
 import abc
-from enum import Enum
-from datetime import datetime, timezone
 
 
 class Message(abc.ABC):
