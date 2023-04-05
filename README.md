@@ -46,8 +46,10 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
-and run tests:
-> tox run
+and run tests and formatters:
+```
+tox run
+```
 
 ## Contributing
 We encourage contributions to this project.
